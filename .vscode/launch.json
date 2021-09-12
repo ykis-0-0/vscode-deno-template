@@ -2,19 +2,26 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "Deno Launch",
-      "type": "node",
+      "name": "Launch Deno",
+      "type": "pwa-node",
       "request": "launch",
       "cwd": "${workspaceFolder}",
       "runtimeExecutable": "deno",
+      "program": "${workspaceFolder}/src/index.ts",
       "runtimeArgs": [
-        "run", "-A", "--inspect-brk",
-        "--importmap", "./importmap.json",
-        "--unstable", "${workspaceFolder}/src/index.ts"
+        "run",
+        "--inspect=127.0.0.1:9229",
+        "--import-map", "./importmap.json",
+        "--allow-all",
+        "--unstable",
       ],
+      "attachSimplePort": 9229,
       "outputCapture": "std",
-      "port": 9229,
-      //"preLaunchTask": "deno purge"
+      "console": "internalConsole",
+      //"preLaunchTask": "deno purge",
+      "resolveSourceMapLocations": [
+        "${workspaceFolder}/src/**",
+      ]
     }
   ]
 }

@@ -1,9 +1,25 @@
 {
+  // Deno
   "deno.enable": true,
   "deno.unstable": true,
-  "deno.import_map": "./importmap.json",
-  "debug.javascript.usePreview": false,
-  "terminal.integrated.shellArgs.windows": [
-    "-NoExit", "-File", "${workspaceFolder}\\.vscode\\deno_completions.ps1"
-  ]
+  "deno.importMap": "./importmap.json",
+  // Terminal
+  "terminal.integrated.profiles.windows": {
+    "PowerShell": {
+      "source": "PowerShell",
+      "icon": "terminal-powershell",
+      "args": [
+        "-NoExit", "-File", "${workspaceFolder}\\.vscode\\deno_completions.ps1"
+      ]
+    },
+    "Command Prompt": {
+      "path": [
+        "${env:windir}\\Sysnative\\cmd.exe",
+        "${env:windir}\\System32\\cmd.exe"
+      ],
+      "args": [],
+      "icon": "terminal-cmd"
+    },
+  },
+  "terminal.integrated.defaultProfile.windows": "PowerShell",
 }

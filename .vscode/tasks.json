@@ -12,9 +12,11 @@
       },
       "command": "./start.sh",
       "args": [
-        "run", "-A",
-        "--importmap=./importmap.json",
-        "--unstable", "${workspaceFolder}/src/index.ts"
+        "run",
+        "--import-map", "./importmap.json",
+        "--allow-all",
+        "--unstable",
+        "${workspaceFolder}/src/index.ts"
       ],
       "windows": {
         "command": "${workspaceFolder}\\start.bat",
